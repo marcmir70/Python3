@@ -1,0 +1,92 @@
+Olha! Eu "apanhei" mesmo neste tópico...
+Primeiro, novamente o PyCharm não anda me ajudando com o teclado... o comando interno **Ctrl D** simplesmente não funciona -
+
+
+Li uma parte do Fórum mas não encontrei problema similar ao meu.
+Como ainda não almocei (e já são 15:30h) parou um pouco na busca por uma solução - até para 'esfriar' o motor rs - que compartilho aqui.
+
+* Obs.: em uma de minhas tentativas, o PyCharm acusou ter um debugger em execução e que havia um problema com o Debug - e indicava o link http://pydev.blogspot.com/2007/06/why-cant-pydev-debugger-work-with.html !?!? para consulta... 
+
+Este é o código que utilizo para o arquivo na pasta/caminho:
+ **novo** / **exercicios** [ sem acentuação ] / **contagem_de_caracteres_lista.py**
+```
+def contar_caracteres(s):
+    """Função que conta os caracteres de uma string
+    Ex:
+
+    >>> contar_caracteres('Marcelo')
+    a: 1
+    c: 1
+    e: 1
+    l: 1
+    M: 1
+    o: 1
+    r: 1
+    >>> contar_caracteres('banana')
+    a: 3
+    b: 1
+    n: 2
+
+    :param s: string a ser contada
+
+    """
+    caracteres_ordenados = sorted(s)
+    caracter_anterior = caracteres_ordenados[0]
+    contagem = 1
+
+    for caracter in caracteres_ordenados[1:]:
+        if caracter == caracter_anterior:
+            contagem += 1
+        else:
+            print(f'{caracter_anterior}: {contagem}')
+            caracter_anterior = caracter
+            contagem = 1
+
+    print(f'{caracter_anterior}: {contagem}')
+
+    if __name__ == '__main__':
+        contar_caracteres('Marcelo')
+        print()
+        contar_caracteres('banana')
+```
+
+Numa execução no Terminal com a linha de comando ```python -m doctest contagem_de_caracteres_lista.py``` obtive o resultado (erro) abaixo...
+
+```
+Microsoft Windows [versão 10.0.18362.900]
+(c) 2019 Microsoft Corporation. Todos os direitos reservados.
+
+(venv) C:\Users\MM\PycharmProjects\novo> cd exercicios
+(venv) C:\Users\Celo\PycharmProjects\novo\exercicios>python -m doctest contagem_de_caracteres_lista.py
+**********************************************************************
+File "C:\Users\Celo\PycharmProjects\novo\exercicios\contagem_de_caracteres_lista.py", line 5, in contagem_de_caracteres_lista.contar_caracteres
+Failed example:
+    contar_caracteres('Marcelo')
+Expected:
+    a: 1
+    c: 1
+    e: 1
+    l: 1
+    M: 1
+    o: 1
+    r: 1
+Got:
+    M: 1
+    a: 1
+    c: 1
+    e: 1
+    l: 1
+    o: 1
+    r: 1
+**********************************************************************
+1 items had failures:
+   1 of   2 in contagem_de_caracteres_lista.contar_caracteres
+***Test Failed*** 1 failures.
+
+(venv) C:\Users\Celo\PycharmProjects\novo\exercicios>
+
+```
+
+Resultado sem sentido algum!
+
+Já vi e revi o código e não encontro o problema... Onde errei?

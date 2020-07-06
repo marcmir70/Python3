@@ -1,0 +1,192 @@
+1
+00:00:00,01 --> 00:00:01,03
+- [Instructor] I'm here on a website called,
+
+2
+00:00:01,03 --> 00:00:03,06
+"Quotes to Scrape" and let's say we want
+
+3
+00:00:03,06 --> 00:00:05,01
+to compile all the quotes,
+
+4
+00:00:05,01 --> 00:00:08,01
+their authors, and the tags associated
+
+5
+00:00:08,01 --> 00:00:10,07
+with each quote from this page.
+
+6
+00:00:10,07 --> 00:00:12,01
+Let's start by taking a look
+
+7
+00:00:12,01 --> 00:00:14,02
+at how the website is structured.
+
+8
+00:00:14,02 --> 00:00:16,03
+I'm going to open up the Chrome Inspector tool,
+
+9
+00:00:16,03 --> 00:00:18,06
+and this displays an HTML document
+
+10
+00:00:18,06 --> 00:00:20,02
+that creates the webpage.
+
+11
+00:00:20,02 --> 00:00:22,05
+To do this, go ahead and right click,
+
+12
+00:00:22,05 --> 00:00:24,08
+and click Inspect.
+
+13
+00:00:24,08 --> 00:00:26,06
+All websites have this component,
+
+14
+00:00:26,06 --> 00:00:29,00
+which makes our job of scraping specific data
+
+15
+00:00:29,00 --> 00:00:30,07
+a lot easier.
+
+16
+00:00:30,07 --> 00:00:33,05
+This HTML document holds every piece of information
+
+17
+00:00:33,05 --> 00:00:35,07
+that is visible on our page.
+
+18
+00:00:35,07 --> 00:00:37,05
+Meaning our quotes are hidden somewhere
+
+19
+00:00:37,05 --> 00:00:41,00
+in this jumble of HTML, we just got to find 'em.
+
+20
+00:00:41,00 --> 00:00:42,05
+So in order to get this information
+
+21
+00:00:42,05 --> 00:00:45,01
+to our python script, we'll need to create a get query.
+
+22
+00:00:45,01 --> 00:00:48,04
+So to do that, I'll first copy the website's address
+
+23
+00:00:48,04 --> 00:00:53,03
+and save it as a variable.
+
+24
+00:00:53,03 --> 00:00:59,04
+Next, let's import the libraries that we'll be using.
+
+25
+00:00:59,04 --> 00:01:01,07
+The request library houses the get function,
+
+26
+00:01:01,07 --> 00:01:04,06
+and which we'll be using to ping the web address.
+
+27
+00:01:04,06 --> 00:01:07,08
+This process returns a response containing the source code
+
+28
+00:01:07,08 --> 00:01:09,01
+from the website.
+
+29
+00:01:09,01 --> 00:01:10,04
+I like to think of this step
+
+30
+00:01:10,04 --> 00:01:12,03
+as creating connection with the URL,
+
+31
+00:01:12,03 --> 00:01:14,03
+and as a response, getting back a copy
+
+32
+00:01:14,03 --> 00:01:16,07
+of the website's HTML document.
+
+33
+00:01:16,07 --> 00:01:21,09
+So let's go ahead and actually create the request.
+
+34
+00:01:21,09 --> 00:01:24,07
+So with that done, the next piece of the puzzle is
+
+35
+00:01:24,07 --> 00:01:28,01
+to parse the HTML document, and for this we'll use
+
+36
+00:01:28,01 --> 00:01:34,05
+BeautifulSoup and lxml.
+
+37
+00:01:34,05 --> 00:01:36,00
+These programs work in unity
+
+38
+00:01:36,00 --> 00:01:37,08
+to create a navigable object
+
+39
+00:01:37,08 --> 00:01:40,07
+that we can use to isolate specific data
+
+40
+00:01:40,07 --> 00:01:46,04
+we actually want from the website.
+
+41
+00:01:46,04 --> 00:01:49,05
+In this line, we'll be parsing responses text attribute
+
+42
+00:01:49,05 --> 00:01:51,02
+and letting BeautifulSoup know we want
+
+43
+00:01:51,02 --> 00:01:53,04
+to use the lxml parser.
+
+44
+00:01:53,04 --> 00:01:56,01
+Let's go ahead and print soup to verify our connection
+
+45
+00:01:56,01 --> 00:02:02,07
+and see if our parser worked correctly.
+
+46
+00:02:02,07 --> 00:02:04,08
+And as you can see, we now have a copy
+
+47
+00:02:04,08 --> 00:02:07,03
+of "Quotes to Scrapes" HTML,
+
+48
+00:02:07,03 --> 00:02:10,00
+and we can now begin isolating specific data.
+

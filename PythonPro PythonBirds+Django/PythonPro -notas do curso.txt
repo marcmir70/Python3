@@ -1,0 +1,571 @@
+Python Pro - notas de curso
+
+   
+
+
+
+
+
+PYTHON BIRDS
+
+1-Programação Procedural
+    1.1-Introdução
+        1.1.1-Motivação
+        ==> Git no Windows
+        1.1.2-Instalação Windows
+        1.1.3-Instalação Ubuntu
+        1.1.4-Instalação Mac
+        1.1.5-Console Interativo
+   o console também é conhecido por REPL (Read Eval Print Loop)
+   ">>>" indica que o console está esperando a expressão
+   https://docs.python-requests.org/en/master
+   
+        1.1.6-Pycharm IDE
+   IDEs procuram conter todas ferramentas necessárias pra desenvolver seu projeto
+
+    1.2-Tipos Básicos
+    1.3-Containers e Iteração
+        1.3.1-Container String, Dir e Help
+
+
+        1.3.2-Container Lista 
+
+
+        1.3.3-Container "Tupla" e Id
+>>> tpl = (1, 2)    <-    elementos separados por vírgula
+>>> type (tpl)
+<class 'tuple'>
+>>> dir(tpl)    <-    não existem métodos de listas, que modificam seu conteúdo
+>>> tuple(range(6))
+(0, 1, 2, 3, 4, 5)
+>>> (6)    <-   não seria tupla mas um INTEIRO
+6
+>>> (6,)
+(6,)    <-    tupla de apenas um elemento
+>>> type(_)
+<class 'tuple'>
+>>> [6,]    <-    pode ser usado vírgula na criação de uma lista
+[6]
+* na linguagem precursora do Python (ABC) a tuple era chamada de compound
+>>> registro=('Marcelo', 50)
+>>> nome, idade = registro    <-    "desempacotamento"
+>>> nome
+'Marcelo'
+>>> idade
+50
+>>> nome, idade, id = registro
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    nome, idade, id = registro
+ValueError: not enough values to unpack (expected 3, got 2)
+>>> 
+>>> nome, idade = (1, 2, 3)
+Traceback (most recent call last):
+  File "<pyshell#10>", line 1, in <module>
+    nome, idade = (1, 2, 3)
+ValueError: too many values to unpack (expected 2)
+>>> 
+>>> registro_2=('Luciano', 40)
+>>> registro + registro_2
+('Marcelo', 50, 'Luciano', 40)
+>>> 
+>>> id(registro)
+67028872
+>>> id(registro_2)
+67203912
+>>> id(registro+registro_2)
+67743208
+>>> 
+
+        1.3.4-Acesso, Tamanho e Fatiamento
+* acesso aos elementos da string, lista e tupla; e fatiamento para gerar subsequencias
+>>> nome='Marcelo'
+>>> nome[0]
+'M'
+>>> nome[1]
+'a'
+>>> len(nome)
+7
+>>> nome[len(nome)-1]
+'o'
+>>> 
+
+>>> nome[len(nome)]
+Traceback (most recent call last):
+  File "<pyshell#27>", line 1, in <module>
+    nome[len(nome)]
+IndexError: string index out of range
+>>> 
+
+>>> nome[-1]
+'o'    <-    índices negativos trazem na ordem inversa (do fim pro início)
+>>> nome[-2]
+'l'
+>>> nome[0:3]
+'Mar'   <-    intervalo aberto de 0 (primeiro) até o de índice 2 (terceiro)
+>>> nome[1:3]
+'ar'
+>>> nome[-3:len(nome)]
+'elo'   <-    apresenta três últimos caracteres da string
+>>> nome[-3:]
+'elo'
+>>> nome[:3]
+'Mar'
+>>> nome[:4:2]
+'Mr'    <-    quatro primeiros caracteres de dois em dois
+>>> nome[::-1]
+'olecraM'   <-    ao contrário (de -1 em -1)
+>>> nome[::2]
+'Mreo'  <-    caracteres de dois em dois
+
+>>> lista=list(range(10))
+>>> lista
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> lista[0]
+0
+>>> lista[-1]
+9
+>>> lista[:3]
+[0, 1, 2]
+>>> lista[::-1]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+>>> len(lista)
+10
+>>> lista[::2]
+[0, 2, 4, 6, 8]
+>>> lista[0:10:2]
+[0, 2, 4, 6, 8]
+>>> 
+
+
+        1.3.5-While
+>>> i = 0
+>>> nome='Marcelo'
+>>> while i<len(nome):
+	print(nome[i])
+
+	
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+Traceback (most recent call last):
+  File "<pyshell#59>", line 2, in <module>
+    print(nome[i])
+KeyboardInterrupt
+
+>>> while i<len(nome):
+	print(nome[i])
+	i +=1
+
+	
+M
+a
+r
+c
+e
+l
+o
+>>> 
+
+        1.3.6-For
+>>> for v in nome:
+	print(v)
+
+	
+M
+a
+r
+c
+e
+l
+o
+>>> 
+
+>>> for i in range(len(nome)):
+	print(i, nome[i])
+
+	
+0 M
+1 a
+2 r
+3 c
+4 e
+5 l
+6 o
+>>> 
+
+>>> for i, v in enumerate(nome):
+	print(i, nome[i])
+
+	
+0 M
+1 a
+2 r
+3 c
+4 e
+5 l
+6 o
+>>> 
+
+>>> for i, v in enumerate(nome):
+	print(i, v)
+
+	
+0 M
+1 a
+2 r
+3 c
+4 e
+5 l
+6 o
+>>> 
+
+
+        1.3.7-Dicionários/Mapas (ou hashtable)
+>>> linguas = {'br':'portugues', 'eua':'ingles'}
+>>> type(linguas)
+<class 'dict'>
+>>> linguas
+{'br': 'portugues', 'eua': 'ingles'}
+>>> 
+
+>>> linguas['br']
+'portugues'
+>>> linguas['eua']
+'ingles'
+>>> linguas['es']
+Traceback (most recent call last):
+  File "<pyshell#93>", line 1, in <module>
+    linguas['es']
+KeyError: 'es'
+>>> 
+
+>>> linguas.get('es')
+>>> linguas.get('es','nao definida')
+'nao definida'
+>>> linguas.get('br','nao definida')
+'portugues'
+>>> 
+
+>>> 'br' in linguas
+True
+>>> 'cn' in linguas
+False
+>>> 
+
+>>> 6 in list(range(10))
+True
+>>> 11 in list(range(10))
+False
+
+>>> linguas['es'] = 'spanhol'
+>>> linguas['es']
+'spanhol'
+>>> linguas['es']='espanhol'
+>>> 
+
+
+        1.3.8-Iteração em Dicionário
+>>> for chave in linguas:
+	print(chave)
+
+	
+br
+eua
+es
+>>> 
+
+>>> for chave in linguas.keys:
+	print(chave)
+
+	
+br
+eua
+es
+>>> 
+
+>>> for chave in linguas.keys():
+	print(chave)
+
+	
+br
+eua
+es
+>>> 
+
+>>> for valor in linguas.values():
+	print(valor)
+
+	
+portugues
+ingles
+espanhol
+>>> 
+
+>>> for chave, valor in linguas.items():
+	print(chave, valor)
+
+	
+br portugues
+eua ingles
+es espanhol
+>>> 
+
+>>> linguas.pop('br')
+'portugues'
+>>> linguas
+{'eua': 'ingles', 'es': 'espanhol'}
+>>> 
+* em um dicionário não faz sentido falar em ordenação (garantida no Python 3.6)
+
+>>> del linguas['eua']  <-  não retorna o valor apagado
+>>> linguas
+{'es': 'espanhol'}
+>>> 
+
+    1.4-Modularização
+        1.4.1-Função e PEP 8
+PEP (Python Enhancement Purposal) 
+. Naming Conventions https://www.python.org/dev/peps/pep-0008/ 
+    nomes de variáveis e funções em "snack (?) case"
+
+>>> def ola_mundo():
+	return 'Olá, Mundo!'
+
+>>> type(ola_mundo)
+<class 'function'>
+>>> 
+
+>>> ola_mundo()
+'Olá, Mundo!'
+>>> 
+
+>>> def ola_mundo():
+	pass    <-  não passa nada
+
+>>> resultado=ola_mundo()
+>>> resultado   <-  não traz nada!
+>>> type(resultado)
+<class 'NoneType'>  <- apesar disso, tem um tipo associado!
+>>> 
+* em outras linguagens 'None' se chama 'Null'
+
+        1.4.2-Parâmetros de Função
+>>> def ola(nome):
+	return f'Olá, {nome}'
+
+>>> ola('Marcelo')
+'Olá, Marcelo'
+>>> 
+
+>>> def ola(nome, sobrenome):
+	return f'Olá, {nome} {sobrenome}'
+
+>>> ola('Mellissa','Miranda')
+'Olá, Mellissa Miranda'
+>>>         
+    
+    * Justaposição
+    
+>>> def ola(nome, sobrenome='Miranda'):    <- estabelecido um valor default
+	return f'Olá, {nome} {sobrenome}'
+
+>>> 
+>>> ola('Arthur')
+'Olá, Arthur Miranda'
+>>> ola('Marcelo','Espasandim')
+'Olá, Marcelo Espasandim'
+>>> 
+>>> def ola(nome, sobrenome='Miranda', idade=50):
+	return f'Olá, {nome} {sobrenome} {idade}'
+
+>>> ola('Marcelo')
+'Olá, Marcelo Miranda 50'   <- com só um parâmetro os outros usam o default
+>>> ola('Mellissa', 13)
+'Olá, Mellissa 13 50'
+>>> ola('Mellissa', idade=13)
+'Olá, Mellissa Miranda 13'
+>>> ola('Arthur', idade=8, sobrenome='N. M.')
+'Olá, Arthur N. M. 8'
+>>> 
+
+        1.4.3-Parâmetros Variáveis
+>>> def soma(*parcelas):
+	print(parcelas)
+	print(type(parcelas))
+
+	
+>>> soma()
+()
+<class 'tuple'>
+>>> soma(1)
+(1,)
+<class 'tuple'>
+>>> soma(1,2)
+(1, 2)
+<class 'tuple'>
+>>> def soma(*parcelas):
+	aux = 0
+	for valor in parcelas:
+		aux +=  valor
+	return aux
+
+>>> soma()
+0
+>>> soma(2)
+2
+>>> soma(2,4)
+6
+>>> soma(2, 4, 10)
+16
+>>> 
+
+>>> def f(**kwargs):
+	print(kwargs)
+	print(type(kwargs))
+
+	
+>>> f()
+{}
+<class 'dict'>
+>>> 
+
+>>> f(1)
+Traceback (most recent call last):
+  File "<pyshell#115>", line 1, in <module>
+    f(1)
+TypeError: f() takes 0 positional arguments but 1 was given
+>>> 
+
+
+>>> f(nome = 'Marcelo')
+{'nome': 'Marcelo'}
+<class 'dict'>
+>>> f(nome='Marcelo',sobrenome='Miranda')
+{'nome': 'Marcelo', 'sobrenome': 'Miranda'}
+<class 'dict'>
+>>> 
+
+>>> args=(2,4,10)
+>>> kwargs={'nome': 'Marcelo', 'sobrenome': 'Miranda'}
+>>> def f(*args, **kwargs):
+	print(args)
+	print(kwargs)
+
+	
+>>> f()
+()
+{}
+>>> 
+
+>>> f(1,2, nome='Arthur', sobrenome='Miranda')
+(1, 2)
+{'nome': 'Arthur', 'sobrenome': 'Miranda'}
+>>> 
+
+>>> f(args, kwargs)
+((2, 4, 10), {'nome': 'Marcelo', 'sobrenome': 'Miranda'})
+{}
+
+# desempacotamento
+>>> f(*args)
+(2, 4, 10)
+{}
+>>> f(**kwargs)
+()
+{'nome': 'Marcelo', 'sobrenome': 'Miranda'}
+>>> f(*args, **kwargs)
+(2, 4, 10)
+{'nome': 'Marcelo', 'sobrenome': 'Miranda'}
+>>> 
+        
+        1.4.4-Módulo
+PyCharm > File / Settings / Keymap / 
+    "incre" / mouse right button > Ctrl + / OK / REMOVE
+    "decre" / mouse right button > Ctrl - / OK / REMOVE
+Ctrl Shift F12 para entrar no modo de edição, apenas com o código a ser editado
+Help / Keymap Reference com todos atalhos existentes
+
+Terminal > dir >> python matematica.py
+mouse right button >> run 'matematica'
+
+        1.4.5-Debug
+Breakpoint
+mouse right button >> debug 'matematica'
+F7 step into
+F8 step over
+selecionando trecho do código / mouse right button >> Add to Watches
+o andamento pode ser verificado na aba 'Console'
+
+        1.4.6-Import e __name__
+def soma (parcela, parcela_2):
+    return parcela + parcela_2
+
+# print(__name__) # "dunder name" <- truque para identificar o módulo
+# evitar que o código de teste de um módulo seja executado
+# quando dentro de outros módulos
+if __name__=="__main__":
+    print(soma(1,2))
+        
+        1.4.7-Pacote
+nos pacotes aparece o __init__.py
+
+### formas de importação
+# import matematica.mat
+# from matematica import mat
+# from matematica import soma
+from matematica.base.mat import soma as s
+
+print(s(4, 5))
+
+
+        1.4.8-Docstring e Comentário
+"Módulo que contém operações Matemáticas"
+
+def soma(parcela, parcela_2):
+    """Essa função calcula a soma de duas parcelas  <- usar """"""
+
+    :param parcela:
+    :param parcela_2:
+    :return:
+    """
+    return parcela + parcela_2
+
+# print(__name__) # "dunder name" <- truque para identificar o módulo
+# evitar que o código de teste de um módulo seja executado
+# quando dentro de outros módulos
+if __name__=="__main__":
+    print(soma(1,2))
+    
+na aba Python Console:
+>>> from matematica.base import mat
+>>> help(mat)    <-    traz a DocString do módulo mat
+
+rodando Rerun (Ctrl F5) - ícone no canto superior esquerdo do quadro Python Console:
+>>> from matematica.base import mat
+>>> help(mat.soma)    <-    traz a DocString da função soma
+
+        1.4.9-Contagem de Caracteres com Lista
+        1.4.10-Contagem de Caracteres com Dicionário
+        1.4.11-Retrospectiva: Paradigma Procedural
+
+
+
+
+
+2-Orientação a Objetos
+    2.1-Classe e Composição
+    2.2-Herança

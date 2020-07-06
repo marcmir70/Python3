@@ -1,0 +1,108 @@
+1
+00:00:00,03 --> 00:00:02,05
+- [Sam] Automation is the major driver
+
+2
+00:00:02,05 --> 00:00:06,00
+of our modern economy, because it allows individuals
+
+3
+00:00:06,00 --> 00:00:09,09
+to be more productive than ever while using fewer resources.
+
+4
+00:00:09,09 --> 00:00:13,00
+And as technology continues to reshape modern business,
+
+5
+00:00:13,00 --> 00:00:15,09
+more and more tasks can now be automated,
+
+6
+00:00:15,09 --> 00:00:18,09
+and automating processes doesn't have to be hard,
+
+7
+00:00:18,09 --> 00:00:21,01
+if you're using the right tools,
+
+8
+00:00:21,01 --> 00:00:23,01
+and this where Python comes in.
+
+9
+00:00:23,01 --> 00:00:25,09
+Python is an easy to learn programming language
+
+10
+00:00:25,09 --> 00:00:28,04
+that you can use to build automations.
+
+11
+00:00:28,04 --> 00:00:29,04
+And because Python
+
+12
+00:00:29,04 --> 00:00:31,08
+is the fastest growing programming language,
+
+13
+00:00:31,08 --> 00:00:35,00
+new tools are being developed and added every day.
+
+14
+00:00:35,00 --> 00:00:38,03
+My name is Sam Pettus, and I use programming languages
+
+15
+00:00:38,03 --> 00:00:41,05
+like Python to help businesses and individuals
+
+16
+00:00:41,05 --> 00:00:43,09
+solve problems and save time.
+
+17
+00:00:43,09 --> 00:00:45,04
+In this course, I'll introduce you
+
+18
+00:00:45,04 --> 00:00:47,00
+to some of the interesting ways
+
+19
+00:00:47,00 --> 00:00:49,08
+Python can automate computer operations.
+
+20
+00:00:49,08 --> 00:00:52,04
+We'll take a look at how to click and type on websites,
+
+21
+00:00:52,04 --> 00:00:55,04
+interact with APIs, web script datasets,
+
+22
+00:00:55,04 --> 00:00:58,05
+and automate file and terminal interactions and more.
+
+23
+00:00:58,05 --> 00:01:00,00
+By the end of this course you'll understand
+
+24
+00:01:00,00 --> 00:01:02,05
+the many ways Python can automate tasks,
+
+25
+00:01:02,05 --> 00:01:05,04
+and feel confident constructing these automations yourself.
+
+26
+00:01:05,04 --> 00:01:08,00
+So, if you're excited about compiling your own army
+
+27
+00:01:08,00 --> 00:01:11,00
+of automated robots, let's go ahead and get started.
+

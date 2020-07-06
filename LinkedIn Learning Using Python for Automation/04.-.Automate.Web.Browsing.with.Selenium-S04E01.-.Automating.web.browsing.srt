@@ -1,0 +1,236 @@
+1
+00:00:00,02 --> 00:00:02,04
+So why automate web browsing?
+
+2
+00:00:02,04 --> 00:00:05,01
+Well, there's really just two main purposes.
+
+3
+00:00:05,01 --> 00:00:07,03
+The first and more prominent reason,
+
+4
+00:00:07,03 --> 00:00:09,05
+is to test website functionality,
+
+5
+00:00:09,05 --> 00:00:13,02
+Automating testing decreases the cost and time,
+
+6
+00:00:13,02 --> 00:00:16,03
+while also providing a means of round the clock testing.
+
+7
+00:00:16,03 --> 00:00:19,02
+Additionally, it makes cross-browser proofing easier.
+
+8
+00:00:19,02 --> 00:00:21,08
+The second and less discussed application,
+
+9
+00:00:21,08 --> 00:00:24,00
+is Botting Processes online.
+
+10
+00:00:24,00 --> 00:00:26,01
+Botting is defined as a piece of software
+
+11
+00:00:26,01 --> 00:00:29,03
+that executes commands or performs routine tasks
+
+12
+00:00:29,03 --> 00:00:31,06
+without the users intervention.
+
+13
+00:00:31,06 --> 00:00:34,09
+And this can be applied to any repetitive task online.
+
+14
+00:00:34,09 --> 00:00:36,09
+For example, let's say you order take-out
+
+15
+00:00:36,09 --> 00:00:38,06
+everyday from a website.
+
+16
+00:00:38,06 --> 00:00:41,08
+Well, instead of manually filling out the form each time,
+
+17
+00:00:41,08 --> 00:00:44,03
+you can instead script the entire process.
+
+18
+00:00:44,03 --> 00:00:46,07
+Or perhaps, logging into a certain website
+
+19
+00:00:46,07 --> 00:00:49,00
+or email, becomes a tedious task.
+
+20
+00:00:49,00 --> 00:00:50,03
+Just script it.
+
+21
+00:00:50,03 --> 00:00:53,01
+Any repetitive online task can now be optimized
+
+22
+00:00:53,01 --> 00:00:55,00
+by creating a Python script.
+
+23
+00:00:55,00 --> 00:00:57,07
+However, these examples just represent benevolent
+
+24
+00:00:57,07 --> 00:00:58,09
+botting tasks.
+
+25
+00:00:58,09 --> 00:01:01,00
+Conversely, this tool can be used for much more
+
+26
+00:01:01,00 --> 00:01:02,05
+nefarious purposes.
+
+27
+00:01:02,05 --> 00:01:03,07
+One of the biggest issues
+
+28
+00:01:03,07 --> 00:01:06,03
+is Botting Limited Quantity Items.
+
+29
+00:01:06,03 --> 00:01:08,05
+Tickets to shows or exclusive merchandise
+
+30
+00:01:08,05 --> 00:01:09,08
+are good examples.
+
+31
+00:01:09,08 --> 00:01:11,09
+Normally the check out process appears fair.
+
+32
+00:01:11,09 --> 00:01:13,08
+As everyone must go through similar steps
+
+33
+00:01:13,08 --> 00:01:15,06
+before a product sells out.
+
+34
+00:01:15,06 --> 00:01:18,00
+But automation creates an unfair arena.
+
+35
+00:01:18,00 --> 00:01:20,09
+Scripts can navigate websites significantly faster
+
+36
+00:01:20,09 --> 00:01:23,05
+than humans, and moreover, scripts can execute
+
+37
+00:01:23,05 --> 00:01:26,06
+hundreds, if not thousands of requests at once.
+
+38
+00:01:26,06 --> 00:01:28,08
+Nearly guaranteeing the process.
+
+39
+00:01:28,08 --> 00:01:31,03
+Consequently, this makes botting notorious
+
+40
+00:01:31,03 --> 00:01:33,04
+for only being used for exploits.
+
+41
+00:01:33,04 --> 00:01:36,05
+But as discussed before, there are positive purposes.
+
+42
+00:01:36,05 --> 00:01:38,04
+All right, with that disclaimer out of the way,
+
+43
+00:01:38,04 --> 00:01:39,06
+let's get you set up.
+
+44
+00:01:39,06 --> 00:01:41,06
+We'll be using the Selenium Library to help
+
+45
+00:01:41,06 --> 00:01:43,03
+us interact with the web.
+
+46
+00:01:43,03 --> 00:01:45,02
+Go ahead and install it.
+
+47
+00:01:45,02 --> 00:01:47,09
+Additionally, Selenium interfaces with the internet
+
+48
+00:01:47,09 --> 00:01:50,04
+by using a web driver, which is a browser
+
+49
+00:01:50,04 --> 00:01:53,05
+that Selenium can use to automate web processes.
+
+50
+00:01:53,05 --> 00:01:56,02
+The two ones I recommend using are Chrome driver,
+
+51
+00:01:56,02 --> 00:01:58,06
+which runs Google Chrome. Or gecko driver,
+
+52
+00:01:58,06 --> 00:02:00,01
+which runs Firefox.
+
+53
+00:02:00,01 --> 00:02:03,01
+So, select whichever browser you feel more comfortable
+
+54
+00:02:03,01 --> 00:02:05,09
+with, and use a package installer to download
+
+55
+00:02:05,09 --> 00:02:07,06
+either one of the drivers.
+
+56
+00:02:07,06 --> 00:02:08,09
+You don't need both.
+
+57
+00:02:08,09 --> 00:02:10,09
+I'll be using Chrome driver and downloading it
+
+58
+00:02:10,09 --> 00:02:15,00
+with the Home Brew package installer.
+
+59
+00:02:15,00 --> 00:02:17,00
+With that setup, we're ready to begin coding.
+

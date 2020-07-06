@@ -1,0 +1,188 @@
+1
+00:00:00,02 --> 00:00:01,04
+- [Instructor] Let's check out the first step
+
+2
+00:00:01,04 --> 00:00:04,03
+of using APIs, creating the request.
+
+3
+00:00:04,03 --> 00:00:06,04
+To practice, we'll be using this free API
+
+4
+00:00:06,04 --> 00:00:09,02
+on upcitemdb.com.
+
+5
+00:00:09,02 --> 00:00:10,07
+This software translates barcodes
+
+6
+00:00:10,07 --> 00:00:12,04
+into a whole host of information,
+
+7
+00:00:12,04 --> 00:00:16,04
+including the product's name and brand.
+
+8
+00:00:16,04 --> 00:00:19,00
+To see an example of what an API call should look like,
+
+9
+00:00:19,00 --> 00:00:22,03
+let's go ahead and use their online GUI I've pulled up here.
+
+10
+00:00:22,03 --> 00:00:27,07
+To demo, I'll just use a LaCroix can barcode.
+
+11
+00:00:27,07 --> 00:00:29,07
+This is a lot of information to break down.
+
+12
+00:00:29,07 --> 00:00:30,06
+But for now,
+
+13
+00:00:30,06 --> 00:00:35,06
+let's just focus at the request URL line at the top.
+
+14
+00:00:35,06 --> 00:00:37,07
+This line contains two factors,
+
+15
+00:00:37,07 --> 00:00:40,08
+the base URL, or everything preceding the question mark,
+
+16
+00:00:40,08 --> 00:00:42,07
+and the parameters of the API call,
+
+17
+00:00:42,07 --> 00:00:45,07
+or everything after the question mark.
+
+18
+00:00:45,07 --> 00:00:48,01
+The base URL is independent of our parameters
+
+19
+00:00:48,01 --> 00:00:51,01
+and will be the same for any barcode we'll look up.
+
+20
+00:00:51,01 --> 00:00:52,06
+However, on the other hand,
+
+21
+00:00:52,06 --> 00:00:56,00
+the parameters are specific to this barcode search.
+
+22
+00:00:56,00 --> 00:00:57,01
+This may sounds complex
+
+23
+00:00:57,01 --> 00:00:59,05
+but this breaks down very simply into code.
+
+24
+00:00:59,05 --> 00:01:00,07
+Let me show you.
+
+25
+00:01:00,07 --> 00:01:04,01
+Let's start by constructing the base URL for our API call.
+
+26
+00:01:04,01 --> 00:01:13,03
+Just go ahead and copy the URL preceding the question mark.
+
+27
+00:01:13,03 --> 00:01:16,01
+Now I'll need to construct the parameters for the API call.
+
+28
+00:01:16,01 --> 00:01:18,07
+This is done by making a Python dictionary.
+
+29
+00:01:18,07 --> 00:01:20,00
+To structure this dictionary,
+
+30
+00:01:20,00 --> 00:01:20,08
+let's take a look
+
+31
+00:01:20,08 --> 00:01:23,07
+at the information after the question mark.
+
+32
+00:01:23,07 --> 00:01:24,09
+From the highlighted text,
+
+33
+00:01:24,09 --> 00:01:28,05
+you can see UPC is equal to our LaCroix barcode.
+
+34
+00:01:28,05 --> 00:01:29,09
+So in our dictionary,
+
+35
+00:01:29,09 --> 00:01:37,06
+UPC should be the key and the barcode our value.
+
+36
+00:01:37,06 --> 00:01:38,08
+With the bases covered,
+
+37
+00:01:38,08 --> 00:01:41,05
+it's time to actually invoke the API call.
+
+38
+00:01:41,05 --> 00:01:42,04
+To do this,
+
+39
+00:01:42,04 --> 00:01:43,04
+I'll use the request library
+
+40
+00:01:43,04 --> 00:01:45,04
+which allows us to send our GET query
+
+41
+00:01:45,04 --> 00:01:57,00
+containing the parameters and our base URL.
+
+42
+00:01:57,00 --> 00:02:00,01
+To make sure our API request was properly constructed,
+
+43
+00:02:00,01 --> 00:02:08,09
+let's go ahead and print out its responses URL attribute.
+
+44
+00:02:08,09 --> 00:02:10,01
+Comparing to the demos,
+
+45
+00:02:10,01 --> 00:02:12,06
+you can see we've made an exact match.
+
+46
+00:02:12,06 --> 00:02:13,05
+And, with that,
+
+47
+00:02:13,05 --> 00:02:16,00
+you've constructed your first request to an API.
+

@@ -1,0 +1,2 @@
+PyCharm keymap---ReferenceCard.pdf
+ - se encontra no caminho C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\help

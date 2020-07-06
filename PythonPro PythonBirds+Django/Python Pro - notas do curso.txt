@@ -1,0 +1,32 @@
+Python Pro - notas de curso
+
+-- Console Interativo
+   o console também é conhecido por REPL (Read Eval Print Loop)
+   ">>>" indica que o console está esperando a expressão
+   https://docs.python-requests.org/en/master
+   
+--Pycharm IDE
+   IDEs procuram conter todas ferramentas necessárias pra desenvolver seu projeto
+   
+
+
+
+
+
+
+
+
+Container "Tupla" e Id
+>>> tpl = (1, 2)
+    elementos separados por vírgula
+    
+>>> type (tpl)
+<class 'tuple'>
+
+>>> dir(tpl)
+    não existem métodos como os de lista, que modificam seu conteúdo
+
+>>> tuple(range(6))
+(0, 1, 2, 3, 4, 5)
+
+>>> 

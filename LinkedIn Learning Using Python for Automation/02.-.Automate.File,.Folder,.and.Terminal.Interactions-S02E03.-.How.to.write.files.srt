@@ -1,0 +1,156 @@
+1
+00:00:00,01 --> 00:00:01,01
+- [Narrator] So I'm all set up on reading files,
+
+2
+00:00:01,01 --> 00:00:04,07
+now it's time to check out how to write files.
+
+3
+00:00:04,07 --> 00:00:06,09
+To demonstrate the flexibility of file writing,
+
+4
+00:00:06,09 --> 00:00:09,02
+let's incorporate it into our existing code.
+
+5
+00:00:09,02 --> 00:00:11,05
+Instead of printing the information to terminal,
+
+6
+00:00:11,05 --> 00:00:13,05
+let's instead write it to a new file.
+
+7
+00:00:13,05 --> 00:00:15,09
+Using the same open function we use to read files,
+
+8
+00:00:15,09 --> 00:00:23,07
+let's now use it to write files.
+
+9
+00:00:23,07 --> 00:00:27,08
+This line will create a new file, called PassFile.txt.
+
+10
+00:00:27,08 --> 00:00:30,06
+Also notice how I'm using "w" as our second parameter,
+
+11
+00:00:30,06 --> 00:00:33,00
+because we want to write to this file.
+
+12
+00:00:33,00 --> 00:00:34,08
+Finally, let's change the print statement
+
+13
+00:00:34,08 --> 00:00:41,01
+to a write function to update our newly created file.
+
+14
+00:00:41,01 --> 00:00:45,02
+Remember to close the file when you're done.
+
+15
+00:00:45,02 --> 00:00:47,05
+At this point, our code should produce a file
+
+16
+00:00:47,05 --> 00:00:54,03
+called Passfile.txt that stores all the P's.
+
+17
+00:00:54,03 --> 00:00:57,01
+With our code executed, let's go ahead an navigate
+
+18
+00:00:57,01 --> 00:00:59,00
+to our current working directory.
+
+19
+00:00:59,00 --> 00:01:02,01
+Great, our PassFile.txt now exists.
+
+20
+00:01:02,01 --> 00:01:03,06
+Let's go ahead and open it and check
+
+21
+00:01:03,06 --> 00:01:06,03
+if it only contains passes.
+
+22
+00:01:06,03 --> 00:01:09,02
+Nice, our code is working as expected.
+
+23
+00:01:09,02 --> 00:01:12,03
+Adding on, let's go ahead and create another file
+
+24
+00:01:12,03 --> 00:01:13,06
+to store the fails.
+
+25
+00:01:13,06 --> 00:01:16,05
+All we need to do is duplicate the previous steps.
+
+26
+00:01:16,05 --> 00:01:22,00
+First, let's create the file.
+
+27
+00:01:22,00 --> 00:01:30,00
+Then, adding some new logic, I'll write to it.
+
+28
+00:01:30,00 --> 00:01:35,04
+And the last step, let's make sure we close our file.
+
+29
+00:01:35,04 --> 00:01:38,04
+At this point, our code should create two files.
+
+30
+00:01:38,04 --> 00:01:40,04
+One that tracks people who passed,
+
+31
+00:01:40,04 --> 00:01:42,07
+and one that contains people who failed.
+
+32
+00:01:42,07 --> 00:01:47,04
+Let's go ahead and check if this is the case.
+
+33
+00:01:47,04 --> 00:01:48,09
+Now, if I again navigate back
+
+34
+00:01:48,09 --> 00:01:51,06
+to my current working directory, we can see now,
+
+35
+00:01:51,06 --> 00:01:55,00
+both the pass and the fail file exist.
+
+36
+00:01:55,00 --> 00:01:57,02
+Let's go ahead and check out the fail file.
+
+37
+00:01:57,02 --> 00:01:59,09
+As expected this file only contains the F tags,
+
+38
+00:01:59,09 --> 00:02:02,01
+so it looks like our program worked correctly,
+
+39
+00:02:02,01 --> 00:02:04,00
+and with that, you've learned the basic of file IO.
+
