@@ -1,8 +1,8 @@
-# Practice Python, Exercise 3 - from 20140226, done in 20190703
+# Practice Python, Exercise 4 - from 20140226, done in 20190703
 # - ref: https://www.practicepython.org/exercise/2014/02/26/04-divisors.html
 # Exercise: asks the user for a number and then prints out a list of all the divisors of that number.
-# Extra: derivação do exercício para buscar todos os divisores do número informado e seus antecessores até 2.
-#      - this programs identifies prime numbers!
+# Extra: variation to look for all divisors from the informed number and its previous ones till 2.
+#      - this programs also identifies the number of divisors, and prime numbers!
 #numbers_divisors #prime_numbers
 
 initial_numb = int(input(f'Please inform me a number here > '))
