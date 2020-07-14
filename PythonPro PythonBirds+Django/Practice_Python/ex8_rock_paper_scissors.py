@@ -36,4 +36,5 @@ while new_game:
             print(f'** Error! Please inform Y, Yes, N, or No! **')
     if answer[0].upper() == 'N':
         new_game = False
+print()
 print('Thanks for playing!')
