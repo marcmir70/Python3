@@ -3,7 +3,7 @@
 # Exercise: returns a list that contains only common elements between the informed lists - with different sizes.
 # Extra: 2. Write this in one line of Python!
 
-## I didn't find the solution yet!
+## I didn't find the [[ extra 2 ]] solution yet!
 
 a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
