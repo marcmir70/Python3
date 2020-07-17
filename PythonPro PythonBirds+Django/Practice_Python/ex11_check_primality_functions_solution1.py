@@ -1,4 +1,4 @@
-# Practice Python, Exercise 11 solution - from 20140416, copied in 20190716
+# Practice Python, Exercise 11 solution 1 - from 20140416, copied in 20190716
 # - ref: https://www.practicepython.org/exercise/2014/04/16/11-check-primality-functions.html
 # Exercise: Ask user a number and determine if it is prime or not. Use functions here!
 #           Write this in one line of Python using at least one list comprehension.
