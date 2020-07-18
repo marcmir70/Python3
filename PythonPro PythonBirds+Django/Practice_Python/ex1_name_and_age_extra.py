@@ -3,7 +3,8 @@
 # Exercise: asks the user his/her name and age,
 #           print out message to him/her that telling the year they will turn 100 years old.
 # Extras:   asking user other number and print out many copies of the previous message on separate lines
-from Practice_Python.functions_name import info_print
+
+from functions_base.ex1_information_printing import info_print
 
 name = input("Give me your name, please... ")
 age = int(input("Also let me know your age... "))
