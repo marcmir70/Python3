@@ -1,4 +1,4 @@
-# Practice Python, Exercise 14 - from 20140515, done in 20190721 by Marcelo Miranda github.com/marcmir70
+# Practice Python, Exercise 15 - from 20140515, done in 20190721 by Marcelo Miranda github.com/marcmir70
 # - ref: https://www.practicepython.org/exercise/2014/05/15/14-list-remove-duplicates.html
 # Exercise: ask user a long string containing multiple words. Then, print it with the words in backwards order.
 
