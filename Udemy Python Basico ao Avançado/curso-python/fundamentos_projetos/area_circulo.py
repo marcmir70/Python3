@@ -1,4 +1,5 @@
-# v1
+# v2
+# -*- coding: utf-8 -*-
 from string import Template
 
 pi = 3.14 # quando estava 3,14 repetia diversas vezes este valor (como string)
