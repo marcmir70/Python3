@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-# v3 - shebang (aula 63)
-pi = 3.14159 # quando estava 3,14 repetia diversas vezes este valor (como string)
+# v4 - importando módulo Math (aula 64)
+# import math
+# print (dir()) # retorna ['__annotations__', ..., 'math']
+
+from math import pi
+
+# print ('π = ', math.pi)
+# pi = 3.14159 # quando era 3,14 (com vírgula) repetia várias vezes essa str)
 raio = 15.3
 print ('Área do círculo:', pi * raio ** 2)
