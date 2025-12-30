@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-from math import pi  # v12 challenge answer + optimizing help
+from math import pi  # v13 leaving w/ err
 import sys
+import errno
 
 
 def help():
@@ -15,6 +16,7 @@ def circulo(raio):
 if __name__ == '__main__':
     if len(sys.argv) < 2 :
         help()
+        sys.exit(errno.EPERM)   # code 1 ; not permitted operation ## sys.exit(1)
     else:
         raio = sys.argv[1]
         area = circulo(raio)
