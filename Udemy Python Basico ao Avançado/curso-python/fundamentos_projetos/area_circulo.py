@@ -1,7 +1,12 @@
 #!/usr/bin/python3
-from math import pi  # v14 check numeric argument
+from math import pi  # v15 optimized err msg
 import sys
 import errno
+
+
+class TerminalColor:
+    ERRO = '\033[91m'
+    NORMAL = '\033[0m'
 
 
 def help():
@@ -16,11 +21,12 @@ def circulo(raio):
 if __name__ == '__main__':
     if len(sys.argv) < 2 :
         help()
-        sys.exit(errno.EPERM)   # code 1 ; not permitted operation ## sys.exit(1)
+        sys.exit(errno.EPERM)   # code 1 ; not permitted operation
     
     if not sys.argv[1].isnumeric():
         help()
-        print('O raio deve ser um valor numérico')
+        print(TerminalColor.ERRO + 'O raio deve ser um valor numérico' 
+              + TerminalColor.NORMAL)
         sys.exit(errno.EINVAL)   # code 2 ; invalid argument
     
     raio = sys.argv[1]
