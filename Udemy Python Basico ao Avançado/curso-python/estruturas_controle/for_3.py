@@ -5,12 +5,10 @@ for chave in produto: # or> chave in produto.keys()
     print(chave)
 
 print('\n...\n')
-
 for valor in produto.values():
     print(valor)
 
 print('\n...\n')
-
 for chave, valor in produto.items():
     print(chave, '=', valor)
 
