@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-# 0, 1, 1, 2, 3, 5, 8, ... ## v2 - finite while loop (using limit)
+# 0, 1, 1, 2, 3, 5, 8, ... ## v3 using Packing for variables exchange
 def fibonacci(limite):
     penultimo = 0
     ultimo = 1
     print(f'{penultimo},{ultimo}', end=',')
     while ultimo < limite:
-        proximo = penultimo + ultimo
-        print(proximo, end=',')
-        penultimo = ultimo
-        ultimo = proximo
+        penultimo, ultimo = ultimo, penultimo + ultimo
+        print(ultimo, end=',')
 
 if __name__ == '__main__':
     fibonacci(10000)
