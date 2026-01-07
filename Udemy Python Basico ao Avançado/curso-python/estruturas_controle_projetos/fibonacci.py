@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-# 0, 1, 1, 2, 3, 5, 8, ... ## v3 using Packing for variables exchange
+# 0, 1, 1, 2, 3, 5, 8, ... ## v4 replacing varibables by a list
 def fibonacci(limite):
-    penultimo = 0
-    ultimo = 1
-    print(f'{penultimo},{ultimo}', end=',')
-    while ultimo < limite:
-        penultimo, ultimo = ultimo, penultimo + ultimo
-        print(ultimo, end=',')
+    resultado = [0, 1]
+    while resultado [-1] < limite:
+        resultado.append(resultado[-2] + resultado[-1])
+    return resultado
 
 if __name__ == '__main__':
-    fibonacci(10000)
+    for fib in fibonacci(10000):
+        print(fib)
