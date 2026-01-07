@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-# 0, 1, 1, 2, 3, 5, 8, ... ## v2.1 improvement: to really stop after the limit is reached
+# 0, 1, 1, 2, 3, 5, 8, ... ## v4.1 replacing varibables by a list
 def fibonacci(limite):
-    penultimo = 0
-    ultimo = 1
-    print(f'{penultimo},{ultimo}', end=',')
-    while penultimo + ultimo < limite:
-        proximo = penultimo + ultimo
-        print(proximo, end=',')
-        penultimo = ultimo
-        ultimo = proximo
+    resultado = [0, 1]
+    while resultado [-2] + resultado [-1] < limite:
+        resultado.append(resultado[-2] + resultado[-1])
+    return resultado
 
 if __name__ == '__main__':
-    fibonacci(6766)
+    for fib in fibonacci(10000):
+        print(fib, end=',')
