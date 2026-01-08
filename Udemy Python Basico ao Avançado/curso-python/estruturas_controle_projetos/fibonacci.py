@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-# 0, 1, 1, 2, 3, 5, 8, ... ## v7 FOR w/ RANGE (less loc -lines of code)
+# 0, 1, 1, 2, 3, 5, 8, ... ## v8 more changes
 def fibonacci(quantidade):
     resultado = [0, 1]
-    for i in range(2, quantidade):
+    for _ in range(quantidade - 2):  # _ is for a not used variable
         resultado.append(sum(resultado[-2:]))
     return resultado
 
