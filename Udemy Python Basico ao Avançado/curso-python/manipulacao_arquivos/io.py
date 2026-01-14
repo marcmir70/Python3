@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 arquivo = open('pessoas.csv')
-dados = arquivo.read()
+for registro in arquivo:
+    print('Nome; {}, Idade: {}'.format(*registro.split(','))) # v2 stream 1
 arquivo.close
-for registro in dados.splitlines():
-    print('Nome; {}, Idade: {}'.format(*registro.split(','))) # após usar print(registro.split(',')) e print(*registro.split(','))
     
