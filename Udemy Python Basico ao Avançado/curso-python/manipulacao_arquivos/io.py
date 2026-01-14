@@ -1,13 +1,7 @@
 #!/usr/bin/python3
-try:
-    arquivo = open('pessoas.csv')
+with open('pessoas.csv') as arquivo:
     for registro in arquivo:
-        print('Nome; {}, Idade: {}'.format(*registro.strip().split(','))) # v4 try/finally
-# except IndexError:
-#     pass
-finally:
-    print('finally')
-    arquivo.close()
-    
+        print('Nome; {}, Idade: {}'.format(*registro.strip().split(','))) # v5 with
+
 if arquivo.closed:
     print('Arquivo já fechado!')
