@@ -17,4 +17,4 @@ if __name__ == '__main__':
         print(f'5³ => {cubo(5)}')
         print(f'4⁴ => {Potencia(4)(2)}')
         print(f'7⁶ => {zenzicube(7)}')
-        
+      
