@@ -1,4 +1,3 @@
-from pacote1 import modulo1
-# v1 chama modulo1
-print(type(modulo1))
-print(modulo1.soma(2,3))
+from pacote1 import modulo2
+# v2
+modulo2.main() # chamada explícita
