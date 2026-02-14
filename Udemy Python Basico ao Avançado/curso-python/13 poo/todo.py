@@ -16,3 +16,9 @@ def main():
     casa.append(Tarefa('Lavar prato'))
 
     # Desafio: percorrer todas as tarefas, usando o método concluir só para "Lavar prato"
+    [tarefa.concluir() for tarefa in casa if tarefa.descricao == 'Lavar prato']
+    for tarefa in casa:
+        print(f'- {tarefa}')
+
+if __name__ == '__main__':
+    main()
