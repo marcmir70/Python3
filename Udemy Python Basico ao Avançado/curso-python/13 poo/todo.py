@@ -1,6 +1,25 @@
 #!/usr/bin/python3
 from datetime import datetime
 
+class Projeto():
+    def __init__f(self, nome):
+        self.nome = nome
+        self.tarefas = []
+
+    def add(self, descricao):
+        self.tarefas.append(Tarefa(descricao))
+
+    def pendentes(self):
+        return [tarefa for tarefa in self.tarefas if not tarefa.feito]
+
+    def procurar(self, descricao):
+        # Possível IndexError - para descrição inexistente
+        return [tarefa for tarefa in self.tarefa:
+                if tarefa.descricao == descricao][0]
+
+    def __str__(self):
+        return f'{self.nome} ({len(self.pendentes())} tarefas pendentes)'
+    
 class Tarefa():
     def __init__(self,descricao):
         self.descricao = descricao
@@ -11,14 +30,36 @@ class Tarefa():
         return self.descricao + (' Concluída)') if self.feito else ('')
 
 def main():
-    casa = []
-    casa.append(Tarefa('Passar roupa'))
-    casa.append(Tarefa('Lavar prato'))
+    # casa = []
+    # casa.append(Tarefa('Passar roupa'))
+    # casa.append(Tarefa('Lavar prato'))
+    # # Desafio: percorrer todas as tarefas, usando o método concluir só para "Lavar prato"
+    # [tarefa.concluir() for tarefa in casa if tarefa.descricao == 'Lavar prato']
+    # for tarefa in casa:
+    #     print(f'- {tarefa}')
 
-    # Desafio: percorrer todas as tarefas, usando o método concluir só para "Lavar prato"
-    [tarefa.concluir() for tarefa in casa if tarefa.descricao == 'Lavar prato']
-    for tarefa in casa:
+    casa = Projeto('Tarefa de Casa
+    casa.add('Passar roupa')
+    casa.add('Lavar prato')
+    print(casa)
+
+    casa.procurar('Lavar prato').concluir()
+    for tarefa in casa.tarefas:
         print(f'- {tarefa}')
+    print(casa)
+
+    mercado = Projeto('Compras no mercado')
+    mercado.add('Frutas secas')
+    mercado.add('Carne')
+    mercado.add('Tomate')
+    print(mercado)
+
+    comprar_carne = mercado.procurar('Carne')
+    comprar_carne.concluir()
+    for tarefa in mercado.tarefas:
+        print(f'- {tarefa}')
+    print(mercado)    
+
 
 if __name__ == '__main__':
     main()
