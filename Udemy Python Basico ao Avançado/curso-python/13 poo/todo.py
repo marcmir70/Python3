@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from datetime import datetime
-
+from datetime import datetime, timedelta
+# v4 lessons 156
 class Projeto:
     def __init__(self, nome):
         self.nome = nome
@@ -9,8 +9,8 @@ class Projeto:
     def __iter__(self):
         return self.tarefas.__iter__()
 
-    def add(self, descricao):
-        self.tarefas.append(Tarefa(descricao))
+    def add(self, descricao, vencimento=None):
+        self.tarefas.append(Tarefa(descricao, vencimento))
 
     def pendentes(self):
         return [tarefa for tarefa in self.tarefas if not tarefa.feito]
@@ -24,29 +24,32 @@ class Projeto:
         return f'{self.nome} ({len(self.pendentes())} tarefa(s) pendente(s))'
     
 class Tarefa():
-    def __init__(self, descricao):
+    def __init__(self, descricao, vencimento=None):
         self.descricao = descricao
         self.feito = False
         self.criacao = datetime.now()
+        self.vencimento = vencimento
 
     def concluir(self):
         self.feito = True
 
     def __str__(self):
-        return self.descricao + (' (Concluída)' if self.feito else '')
+        status = []
+        if self.feito:
+            status.append('(Concluída)')
+        elif self.vencimento:
+            if datetime.now() > self.vencimento:
+                status.append('(Vencida)')
+            else:
+                dias = (self.vencimento - datetime.now()).days
+                status.append(f'(Vence em {dias} dias)')
+        
+        return f'{self.descricao} ' + ' '.join(status)
     
 
 def main():
-    # casa = []
-    # casa.append(Tarefa('Passar roupa'))
-    # casa.append(Tarefa('Lavar prato'))
-    # # Desafio: percorrer todas as tarefas, usando o método concluir só para "Lavar prato"
-    # [tarefa.concluir() for tarefa in casa if tarefa.descricao == 'Lavar prato']
-    # for tarefa in casa:
-    #     print(f'- {tarefa}')
-
     casa = Projeto('Tarefas de Casa')
-    casa.add('Passar roupa')
+    casa.add('Passar roupa', datetime.now())
     casa.add('Lavar prato')
     print(casa)
 
@@ -58,7 +61,7 @@ def main():
     mercado = Projeto('Compras no mercado')
     mercado.add('Frutas secas')
     mercado.add('Carne')
-    mercado.add('Tomate')
+    mercado.add('Tomate', datetime.now() + timedelta(days=3, minutes=12, seconds=1))
     print(mercado)
 
     comprar_carne = mercado.procurar('Carne')
