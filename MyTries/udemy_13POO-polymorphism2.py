@@ -8,8 +8,11 @@
 from math import pi
 
 class FormaGeometrica:
+    total_criado = 0
+    
     def __init__(self, nome):
         self.nome = nome
+        FormaGeometrica.total_criado += 1
 
     # Método genérico na classe pai (Base) - "promessa" (método vazio)
     def calcular_area(self):
@@ -75,4 +78,4 @@ if __name__ == '__main__':
     print("Hora de calcular a área das formas geométricas...\n")
     for forma in minhas_formas:
         print(forma)
-        
+    print(f"Total de formas criadas: {FormaGeometrica.total_criado}")
