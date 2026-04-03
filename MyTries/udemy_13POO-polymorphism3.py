@@ -12,6 +12,7 @@ class Livro:
     # idioma = "Português"
     total_livros = 0
     instituicao = "Biblioteca Nacional"
+    unidade_federativa = "RJ"
 
     def __init__(self, titulo, autor):
         # Membro de Instância (self): O dono é o objeto. 
@@ -35,15 +36,21 @@ class Livro:
         print(f"\n--- Resetando o contador da {cls.instituicao} ---")
         cls.total_livros = 0 # 'cls' aqui é o mesmo que 'Livro'
 
+    @classmethod
+    def mudar_sede(cls, nova_sede):
+        print(f"\n--- Alterando a sede da {cls.instituicao} ---")
+        cls.unidade_federativa = nova_sede # 'cls' aqui é o mesmo que 'Livro'
+
 
 if __name__ == '__main__':
     # 1. Criando instâncias (agora passando os argumentos corretos)
     livro1 = Livro("A Ilha Misteriosa", "Júlio Verne")
     livro2 = Livro("Dom Casmurro", "Machado de Assis")
-
     print(f"Livros criados: {Livro.total_livros}")
     
-    # Chamamos o método de classe diretamente pela CLASSE, não pelo objeto
-    Livro.resetar_contador()
-    
-    print(f"Livros criados após reset: {Livro.total_livros}")
+    # Chamamos o método de classe direta/ pela CLASSE, não pelo objeto
+    # Livro.resetar_contador()
+    # print(f"Livros criados após reset: {Livro.total_livros}")
+
+    Livro.mudar_sede("SP")
+    print(f"Nova sede da {Livro.instituicao}: {Livro.unidade_federativa}")
