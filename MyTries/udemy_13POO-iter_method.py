@@ -19,6 +19,10 @@ class AutomacaoYoutube:
         
         # 2. Desativa a flag de WebDriver para o site não saber que é um bot
         options.add_argument("--disable-blink-features=AutomationControlled")
+
+        # 3. define tamanho da janela
+        # options.add_argument("--start-maximized")
+        options.add_argument("--window-size=1650,850")
         
         self.driver = webdriver.Chrome(options=options)
 
