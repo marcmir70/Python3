@@ -9,7 +9,18 @@ from selenium.webdriver.common.keys import Keys
 class AutomacaoYoutube:
     def __init__(self):
         # O "Construtor" (150) inicializa o navegador Chrome
-        self.driver = webdriver.Chrome() 
+        # self.driver = webdriver.Chrome() 
+
+        options = webdriver.ChromeOptions()
+        
+        # 1. Remove a mensagem "Chrome is being controlled..."
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
+        
+        # 2. Desativa a flag de WebDriver para o site não saber que é um bot
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        
+        self.driver = webdriver.Chrome(options=options)
 
     def buscar_e_tocar(self, nome_musica):
         # 1. Navega até o site
@@ -27,31 +38,45 @@ class AutomacaoYoutube:
         # 4. Clica no primeiro vídeo da lista de resultados
         primeiro_video = self.driver.find_element(By.ID, "video-title")
         primeiro_video.click()
+        time.sleep(3) # Espera o player carregar um pouco
+
+        # um 'DISFARCE' aqui, se o YouTube se 'irritar' com pulos de vídeo
+        print(f"Simulando interação humana para: {nome_musica}")
+        self.driver.execute_script("window.scrollTo(0, 100);")
+        time.sleep(1)
+        self.driver.execute_script("window.scrollTo(0, 0);")        
 
         # # Mantém o browser aberto por um tempo para ouvir
         # print(f"Reproduzindo: {nome_musica}")
         # time.sleep(60) 
 
-        # Mágica para esperar a música acabar:
+# Antes de entrar no loop, pegamos a URL do vídeo que clicamos
+        url_original = self.driver.current_url
+
+        # para esperar a música acabar:
         try:
-            # Esperamos o player carregar
+            # Espera o player carregar
             time.sleep(5) 
-            
+
             # Loop que verifica o status do vídeo a cada 5 segundos
             while True:
-                # Script que pergunta ao player do YouTube o seu estado
-                # 0 = acabou, 1 = tocando, 2 = pausado
+                # 1. verifica estado do player do YouTube
+                # 0=acabou, 1=tocando, 2=pausado
                 estado = self.driver.execute_script(
                     "return document.querySelector('#movie_player').getPlayerState()"
                 )
                 
-                if estado == 0: # 0 significa 'Ended' (Terminou)
-                    print(f"Fim de: {nome_musica}")
+                # 2. vê se URL mudou (Autoplay pulou pra outro vídeo)
+                url_atual = self.driver.current_url
+                
+                # Se o estado for 'Fim' OU a URL mudou, encerramos esta música
+                if estado == 0 or url_atual != url_original:
+                    print(f"Fim detectado para: {nome_musica}")
                     break
                 
                 time.sleep(5) # Espera 5 segundos antes de perguntar de novo
         except Exception as e:
-            print("Ocorreu um erro ou o player foi fechado.")
+            print("Ocorreu um erro '{e}' ou o player foi fechado.")
 
 # --- TESTANDO ---
 if __name__ == '__main__':
