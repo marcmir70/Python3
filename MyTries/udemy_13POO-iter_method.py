@@ -8,6 +8,15 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+def formatar_segundos_exato(segundos):
+    # Divide os segundos totais para achar os minutos e segundos restantes
+    minutos, seg = divmod(segundos, 60)
+    # Divide os minutos para achar as horas e minutos restantes
+    horas, min = divmod(minutos, 60)
+    
+    # f-string: {horas} não tem zeros extras, {:02d} força 2 dígitos para minutos e segundos
+    return f"{horas}:{min:02d}:{seg:02d}"
+
 class AutomacaoYoutube:
     def __init__(self):
         # O "Construtor" (150) inicializa o navegador Chrome
@@ -46,19 +55,17 @@ class AutomacaoYoutube:
         primeiro_video.click()
         time.sleep(3) # Espera o player carregar um pouco
 
-        # Extraindo a duração total (em segundos) via JavaScript
+        # Extraindo duração total (em segundos)
         duracao_total = self.driver.execute_script(
             "return document.querySelector('#movie_player').getDuration()"
         )
-
-        print(f"A música '{nome_musica}' tem {duracao_total} segundos.")
 
         # # Agora, em vez de um loop de 5 em 5 segundos, 
         # # podemos simplesmente esperar o tempo da música!
         # time.sleep(duracao_total)
 
         # um 'DISFARCE' aqui, se o YouTube se 'irritar' com pulos de vídeo
-        print(f"Simulando interação humana para: {nome_musica} {duracao_total} seg")
+        print(f"Simulando interação humana para: {nome_musica} {formatar_segundos_exato(duracao_total)}")
         self.driver.execute_script("window.scrollTo(0, 10);")
         time.sleep(1)
         self.driver.execute_script("window.scrollTo(0, 0);")        
