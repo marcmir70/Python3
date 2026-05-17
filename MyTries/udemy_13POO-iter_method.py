@@ -16,9 +16,9 @@ def formatar_tempo(segundos):
     
     # Se não houver horas, formata como m:ss
     if horas == 0:
-        return f"{min}:{seg:02d}"
+        return f"{min} min:{seg:02d} seg"
     # Se houver horas, formata como h:mm:ss
-    return f"{horas}:{min:02d}:{seg:02d}"
+    return f"{horas} h(s):{min:02d} min:{seg:02d} seg"
 
 
 class AutomacaoYoutube:
@@ -99,7 +99,7 @@ class AutomacaoYoutube:
                 
                 # Se o estado for 'Fim' OU a URL mudou, encerramos esta música
                 if estado == 0 or url_atual != url_original:
-                    print(f"Fim detectado para: {nome_musica}")
+                    print(f"   --> Fim detectado para: {nome_musica} <--")
                     break
                 
                 time.sleep(5) # Espera 5 segundos antes de perguntar de novo
