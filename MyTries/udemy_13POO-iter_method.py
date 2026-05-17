@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 # abre o browser, vai no Youtube, busca o vídeo da música e o reproduz
+# chamada via Terminal : source venv/bin/activate
+#             e então  : python MyTries/udemy_13POO-iter_method.py
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -44,9 +46,20 @@ class AutomacaoYoutube:
         primeiro_video.click()
         time.sleep(3) # Espera o player carregar um pouco
 
+        # Extraindo a duração total (em segundos) via JavaScript
+        duracao_total = self.driver.execute_script(
+            "return document.querySelector('#movie_player').getDuration()"
+        )
+
+        print(f"A música '{nome_musica}' tem {duracao_total} segundos.")
+
+        # # Agora, em vez de um loop de 5 em 5 segundos, 
+        # # podemos simplesmente esperar o tempo da música!
+        # time.sleep(duracao_total)
+
         # um 'DISFARCE' aqui, se o YouTube se 'irritar' com pulos de vídeo
-        print(f"Simulando interação humana para: {nome_musica}")
-        self.driver.execute_script("window.scrollTo(0, 100);")
+        print(f"Simulando interação humana para: {nome_musica} {duracao_total} seg")
+        self.driver.execute_script("window.scrollTo(0, 10);")
         time.sleep(1)
         self.driver.execute_script("window.scrollTo(0, 0);")        
 
